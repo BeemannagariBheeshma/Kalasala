@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KALASALA | Learn. Prepare. Succeed.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--ink:#20312b;--muted:#61716b;--paper:rgba(255,255,255,.74);--line:rgba(32,49,43,.1);--accent:#567d70;--dark:#35584e;--gold:#b89452;--shadow:0 22px 60px rgba(48,72,63,.12);--radius:28px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;color:var(--ink);overflow-x:hidden;background:radial-gradient(circle at 10% 10%,rgba(180,213,198,.5),transparent 28%),radial-gradient(circle at 90% 20%,rgba(230,214,174,.34),transparent 25%),radial-gradient(circle at 50% 85%,rgba(199,220,211,.42),transparent 30%),linear-gradient(135deg,#eef5f1,#f8f5eb 50%,#edf4f0)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);background-size:34px 34px;opacity:.22;z-index:-1}a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:14px 18px 14px 22px;border:1px solid rgba(255,255,255,.65);background:rgba(255,255,255,.68);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 12px 35px rgba(45,70,60,.08)}
+.nav-brand{font-weight:800;letter-spacing:.18em}.nav-links{display:flex;gap:26px;color:var(--muted);font-size:.9rem}.nav-links a:hover{color:var(--dark)}.music-btn{border:0;cursor:pointer;background:var(--dark);color:white;padding:10px 15px;border-radius:999px;font:inherit;font-size:.84rem;transition:.25s;box-shadow:0 8px 20px rgba(53,88,78,.18)}.music-btn:hover{transform:translateY(-2px)}
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;padding:150px 0 90px}.hero-content{text-align:center;max-width:900px}.eyebrow{display:inline-flex;padding:8px 14px;border:1px solid rgba(53,88,78,.12);border-radius:999px;color:var(--dark);background:rgba(255,255,255,.48);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}.brand-title{font-family:"Playfair Display",serif;font-size:clamp(4.2rem,12vw,9.2rem);line-height:.88;letter-spacing:.1em;display:flex;justify-content:center;gap:.03em;perspective:700px}.brand-title span{display:inline-block;opacity:0;transform:translateY(-120px) rotateX(65deg);animation:letterSettle .95s cubic-bezier(.18,.89,.32,1.28) forwards}.brand-title span:nth-child(1){animation-delay:.05s}.brand-title span:nth-child(2){animation-delay:.14s}.brand-title span:nth-child(3){animation-delay:.23s}.brand-title span:nth-child(4){animation-delay:.32s}.brand-title span:nth-child(5){animation-delay:.41s}.brand-title span:nth-child(6){animation-delay:.5s}.brand-title span:nth-child(7){animation-delay:.59s}.brand-title span:nth-child(8){animation-delay:.68s}@keyframes letterSettle{0%{opacity:0;transform:translateY(-120px) rotateX(65deg)}45%{opacity:1;transform:translateY(24px) rotateX(-10deg)}72%{transform:translateY(-10px) rotateX(4deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}.tagline{margin-top:28px;font-family:"Playfair Display",serif;font-size:clamp(1.3rem,3vw,2rem);color:var(--dark)}.hero-text{max-width:690px;margin:18px auto 0;color:var(--muted);font-size:1.05rem;line-height:1.8}.hero-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 21px;border-radius:999px;font-weight:700;font-size:.92rem;transition:.25s}.btn-primary{background:var(--dark);color:white;box-shadow:0 12px 25px rgba(53,88,78,.2)}.btn-primary:hover{transform:translateY(-3px)}.btn-secondary{background:rgba(255,255,255,.58);border:1px solid var(--line)}.btn-secondary:hover{background:white;transform:translateY(-3px)}.hero-note{margin-top:28px;font-size:.84rem;color:var(--muted)}
+section{padding:105px 0}.section-heading{text-align:center;max-width:760px;margin:0 auto 52px}.section-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:800;margin-bottom:12px}h2{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.1}.section-heading p{margin-top:16px;color:var(--muted);line-height:1.8}
+.program-grid,.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.program-card,.price-card,.interview-intro,.interview-topics,.tutor-card{background:var(--paper);border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow)}.program-card{position:relative;padding:34px;border-radius:var(--radius);overflow:hidden;transition:.35s}.program-card:hover{transform:translateY(-8px)}.program-icon{font-size:2rem;margin-bottom:18px}.program-card h3,.price-card h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:10px}.program-card>p,.price-description{color:var(--muted);line-height:1.7;margin-bottom:20px}.topic-mini{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px}.topic-mini span{padding:8px 11px;background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.78rem}
+.syllabus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}.syllabus-card{background:var(--paper);border:1px solid rgba(255,255,255,.72);border-radius:24px;padding:24px 21px;box-shadow:0 18px 45px rgba(48,72,63,.09);transition:.3s}.syllabus-card:hover{transform:translateY(-7px)}.syllabus-card h3{font-family:"Playfair Display",serif;font-size:1.25rem;color:var(--dark);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}.syllabus-card ul{list-style:none;display:grid;gap:9px}.syllabus-card li{position:relative;padding-left:15px;color:var(--muted);font-size:.82rem;line-height:1.45}.syllabus-card li:before{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold);left:0;top:.55em}.syllabus-subtitle{margin:18px 0 8px;font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;color:var(--dark);font-weight:800}
+.interview-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}.interview-intro,.interview-topics{border-radius:var(--radius);padding:38px}.interview-intro h3{font-family:"Playfair Display",serif;font-size:2.2rem;margin-bottom:16px}.interview-intro p{color:var(--muted);line-height:1.8}.interview-note{margin-top:25px;padding:16px;border-left:3px solid var(--gold);background:rgba(255,255,255,.46);color:var(--muted);line-height:1.6;font-size:.9rem;border-radius:0 14px 14px 0}.interview-topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.interview-topic{padding:15px 16px;border-radius:16px;background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.why-card{padding:28px;border-radius:22px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.72);transition:.3s}.why-card:hover{transform:translateY(-5px)}.why-card .icon{font-size:1.7rem;margin-bottom:15px}.why-card h3{font-size:1.05rem;margin-bottom:8px}.why-card p{color:var(--muted);line-height:1.65;font-size:.9rem}
+.tutor-card{display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;padding:40px;border-radius:var(--radius)}.tutor-avatar{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;margin:auto;background:linear-gradient(145deg,#d7e6df,#a9c5b8);color:var(--dark);font-family:"Playfair Display",serif;font-size:2.7rem;box-shadow:inset 0 0 0 10px rgba(255,255,255,.3)}.tutor-card h3{font-family:"Playfair Display",serif;font-size:2.1rem;margin-bottom:8px}.tutor-card .role{color:var(--gold);font-weight:700;margin-bottom:16px}.tutor-card p{color:var(--muted);line-height:1.8}
+.price-card{padding:36px;border-radius:var(--radius);position:relative}.price-card.featured{background:rgba(53,88,78,.94);color:white;transform:translateY(-8px)}.price-card.featured .price-description,.price-card.featured li{color:rgba(255,255,255,.78)}.badge{position:absolute;top:20px;right:20px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.72rem;font-weight:700}.price{font-size:2.7rem;font-weight:800;margin:17px 0 5px}.price small{font-size:.85rem;font-weight:500;color:var(--muted)}.featured .price small{color:rgba(255,255,255,.68)}.price-card ul{list-style:none;display:grid;gap:10px;margin-bottom:25px}.price-card li{color:var(--muted);font-size:.9rem}.price-card li:before{content:"✓";color:var(--gold);font-weight:800;margin-right:9px}
+.schedule{padding:45px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(220,235,228,.65));border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow);text-align:center}.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}.time-card{padding:23px;background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:20px}.time-card .time-icon{font-size:1.8rem}.time-card h3{margin:9px 0 5px}.time-card p{color:var(--muted);font-size:.84rem;line-height:1.5}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.step{padding:25px 18px;border-radius:20px;background:rgba(255,255,255,.58);border:1px solid var(--line)}.step-number{color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.1em}.step h3{margin:10px 0 7px;font-size:1rem}.step p{color:var(--muted);line-height:1.55;font-size:.83rem}
+.faq{max-width:850px;margin:auto;display:grid;gap:10px}details{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:18px;padding:18px 20px}summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--gold);font-size:1.3rem}details[open] summary:after{content:"−"}details p{color:var(--muted);line-height:1.7;padding-top:13px;font-size:.9rem}
+.final-cta{text-align:center;padding:90px 30px;border-radius:35px;background:linear-gradient(135deg,#35584e,#567d70);color:white;box-shadow:0 30px 80px rgba(53,88,78,.22)}.final-cta h2{color:white}.final-cta p{max-width:620px;margin:17px auto 28px;color:rgba(255,255,255,.78);line-height:1.75}.final-cta .btn-primary{background:white;color:var(--dark)}footer{padding:35px 0 45px;color:var(--muted);text-align:center}.footer-brand{font-weight:800;letter-spacing:.18em;color:var(--ink);margin-bottom:8px}.footer-small{font-size:.82rem;line-height:1.7}
+.reveal{opacity:0;filter:blur(4px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.75,.25,1),filter .85s ease;will-change:transform,opacity}.reveal.from-left{transform:translateX(-90px)}.reveal.from-right{transform:translateX(90px)}.reveal.from-up{transform:translateY(75px)}.reveal.from-down{transform:translateY(-75px)}.reveal.zoom{transform:scale(.86)}.reveal.show{opacity:1;filter:blur(0);transform:none}.music-status{position:fixed;right:18px;bottom:18px;z-index:999;background:rgba(255,255,255,.82);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.8);padding:10px 14px;border-radius:999px;color:var(--dark);font-size:.78rem;box-shadow:0 10px 30px rgba(45,70,60,.1);opacity:0;transform:translateY(10px);pointer-events:none;transition:.3s}.music-status.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1050px){.syllabus-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}}@media(max-width:820px){.nav-links{display:none}.program-grid,.pricing-grid,.interview-wrap{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.tutor-card{grid-template-columns:1fr;text-align:center}.steps{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.container{width:min(100% - 26px,1180px)}section{padding:75px 0}.hero{padding-top:130px}.brand-title{font-size:clamp(3rem,18vw,5.5rem);letter-spacing:.06em}.syllabus-grid,.why-grid,.schedule-grid,.steps{grid-template-columns:1fr}.interview-topics{grid-template-columns:1fr}.program-card,.price-card,.interview-intro,.interview-topics,.tutor-card{padding:27px}.schedule{padding:30px 20px}.nav{top:9px}.nav-brand{font-size:.85rem}.music-btn{padding:9px 12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+<nav class="nav">
+  <a href="#home" class="nav-brand">KALASALA</a>
+  <div class="nav-links">
+    <a href="#programs">Programs</a>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#tutor">Tutor</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <button class="music-btn" id="musicBtn">♫ Music: Off</button>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow reveal from-down">Online Learning & Career Preparation</div>
+
+    <div class="brand-title" aria-label="KALASALA">
+      <span>K</span><span>A</span><span>L</span><span>A</span>
+      <span>S</span><span>A</span><span>L</span><span>A</span>
+    </div>
+
+    <div class="tagline reveal from-up">Learn. Prepare. Succeed.</div>
+
+    <p class="hero-text reveal from-up">
+      Build the skills you need for competitive examinations and job interviews through structured,
+      affordable online learning with flexible sessions.
+    </p>
+
+    <div class="hero-buttons reveal zoom">
+      <a href="#programs" class="btn btn-primary">Explore Programs</a>
+      <a href="#contact" class="btn btn-secondary">Connect With Us</a>
+    </div>
+
+    <p class="hero-note reveal from-up">
+      Live Online Classes &nbsp;•&nbsp; Flexible Timings &nbsp;•&nbsp; Personal Guidance
+    </p>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="container">
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">What We Teach</div>
+      <h2>Two focused paths. One goal — your next opportunity.</h2>
+      <p>
+        Choose the preparation that matches where you are heading:
+        competitive examinations or your next job interview.
+      </p>
+    </div>
+
+    <div class="program-grid">
+
+      <article class="program-card reveal from-left">
+        <div class="program-icon">📚</div>
+        <h3>Competitive Exam Preparation</h3>
+        <p>
+          Structured preparation across quantitative aptitude, logical reasoning,
+          analytical reasoning and verbal ability, supported by practice and mock tests.
+        </p>
+
+        <div class="topic-mini">
+          <span>Quantitative Aptitude</span>
+          <span>Logical Reasoning</span>
+          <span>Analytical Reasoning</span>
+          <span>Verbal Ability</span>
+          <span>Practice</span>
+          <span>Mock Tests</span>
+        </div>
+
+        <a href="#syllabus" class="btn btn-primary">View Full Syllabus →</a>
+      </article>
+
+      <article class="program-card reveal from-right">
+        <div class="program-icon">💼</div>
+        <h3>Interview Preparation</h3>
+        <p>
+          Improve communication, answer structure and interview readiness through
+          focused preparation and mock interview practice.
+        </p>
+
+        <div class="topic-mini">
+          <span>English Communication</span>
+          <span>HR Preparation</span>
+          <span>Answering Techniques</span>
+          <span>Mock Interviews</span>
+          <span>Feedback</span>
+        </div>
+
+        <a href="#interview" class="btn btn-primary">View Program →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="syllabus">
+  <div class="container">
+
+    <div class="section-heading reveal from-down">
+      <div class="section-kicker">Competitive Exam Syllabus</div>
+      <h2>Know exactly what you will learn.</h2>
+      <p>
+        The syllabus below follows the terminology and topic structure
+        from the KALASALA preparation material.
+      </p>
+    </div>
+
+    <div class="syllabus-grid">
+
+      <article class="syllabus-card reveal from-left">
+        <h3>Quantitative Aptitude</h3>
+
+        <div class="syllabus-subtitle">Number System</div>
+        <ul>
+          <li>Types of Numbers</li>
+          <li>Divisibility Rules</li>
+          <li>Prime Numbers</li>
+          <li>Factors and Multiples</li>
+          <li>LCM & HCF (Including advanced applications)</li>
+          <li>Remainder theorem</li>
+          <li>Cyclicity</li>
+          <li>Unit digit / last two digits</li>
+          <li>Digital root</li>
+          <li>Base system (Binary decimal conversions)</li>
+          <li>Simplification and approximation</li>
+          <li>Surds and Indices</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Arithmetic</div>
+        <ul>
+          <li>Percentages</li>
+          <li>Percentage Change</li>
+          <li>Successive Percentage</li>
+          <li>Population Based Problems</li>
+          <li>Profit, Loss & Discount</li>
+          <li>Markup and Markdown</li>
+          <li>Successive Discounts</li>
+          <li>False Weight (fractions in disguise)</li>
+          <li>Ratio, Proportion & Variation</li>
+          <li>Direct Variation</li>
+          <li>Inverse Variation</li>
+          <li>Joint Variation</li>
+          <li>Partnership (with time variation)</li>
+          <li>Averages</li>
+          <li>Weighted Averages</li>
+          <li>Replacement Concepts</li>
+          <li>Time & Work</li>
+          <li>Work Efficiency</li>
+          <li>Pipes & Cisterns</li>
+          <li>Work & Wages</li>
+          <li>Time, Speed & Distance</li>
+          <li>Relative Speed</li>
+          <li>Trains</li>
+          <li>Boats & Streams</li>
+          <li>Races</li>
+          <li>Circular tracks</li>
+          <li>Interests</li>
+          <li>Simple Interest</li>
+          <li>Compound Interest</li>
+          <li>Installments (EMI Plans)</li>
+          <li>Mixtures and Allegations</li>
+          <li>Replacement</li>
+          <li>Repeated Dilution</li>
+          <li>Ages</li>
+          <li>Age Relationships</li>
+          <li>Ratio-Based Age Problems</li>
+          <li>Coins / Currency</li>
+          <li>Coin Combination</li>
+          <li>Denomination Problems</li>
+          <li>Simplification</li>
+          <li>BODMAS</li>
+          <li>Approximation Techniques</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Algebra</div>
+        <ul>
+          <li>Linear Equations</li>
+          <li>Quadratic Equations</li>
+          <li>Inequalities</li>
+          <li>Functions</li>
+          <li>Polynomials</li>
+          <li>Logarithms</li>
+          <li>Progressions (AP, GP, HP)</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Geometry</div>
+        <ul>
+          <li>Lines and Angles</li>
+          <li>Triangles (Properties, Similarity)</li>
+          <li>Quadrilaterals</li>
+          <li>Polygons</li>
+          <li>Circles (Tangents, Chords)</li>
+          <li>Coordinate Geometry (Distance, Slope, Section)</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Mensuration</div>
+        <ul>
+          <li>2D — Square, Rectangle</li>
+          <li>2D — Triangle</li>
+          <li>2D — Circle</li>
+          <li>2D — Trapeziums</li>
+          <li>3D — Cube, Cuboid</li>
+          <li>3D — Cylinder</li>
+          <li>3D — Cone</li>
+          <li>3D — Sphere, hemisphere</li>
+          <li>3D — Frustum</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Data Interpretation</div>
+        <ul>
+          <li>Tables</li>
+          <li>Bar Graphs</li>
+          <li>Pie Charts</li>
+          <li>Line Graphs</li>
+          <li>Mixed Graphs</li>
+          <li>Caselets</li>
+          <li>Data Sufficiency (Sometimes counted here)</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Permutation, Combination & Probability</div>
+        <ul>
+          <li>Fundamental Counting Principle</li>
+          <li>Permutations</li>
+          <li>Combinations</li>
+          <li>Probability</li>
+          <li>Conditional Probability</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Misc. (Rare but asked)</div>
+        <ul>
+          <li>Clocks</li>
+          <li>Calendars</li>
+          <li>Heights and Distances</li>
+          <li>Set Theory</li>
+          <li>Venn Diagrams</li>
+        </ul>
+      </article>
+
+      <article class="syllabus-card reveal from-up">
+        <h3>Logical Reasoning</h3>
+
+        <div class="syllabus-subtitle">Verbal Reasoning</div>
+        <ul>
+          <li>Series — Alphabet Series</li>
+          <li>Series — Numeric Series</li>
+          <li>Series — Alphanumeric Series</li>
+          <li>Coding-Decoding — Pattern Coding</li>
+          <li>Coding-Decoding — Position-Based</li>
+          <li>Coding-Decoding — Matrix Coding</li>
+          <li>Blood Relations — Direct</li>
+          <li>Blood Relations — Puzzle-based relations</li>
+          <li>Direction Sense — Basic</li>
+          <li>Direction Sense — With angles and Distances</li>
+          <li>Puzzles — Seating (Linear, Circular, Rectangular)</li>
+          <li>Puzzles — Floor puzzles</li>
+          <li>Puzzles — Box puzzles</li>
+          <li>Puzzles — Scheduling</li>
+          <li>Puzzles — Comparison puzzles</li>
+          <li>Syllogisms — Traditional Logic</li>
+          <li>Syllogisms — Venn Diagram Method</li>
+          <li>Syllogisms — Possibility cases</li>
+          <li>Logical Reasoning — Statements and Conclusions</li>
+          <li>Logical Reasoning — Assumptions</li>
+          <li>Logical Reasoning — Arguments</li>
+          <li>Logical Reasoning — Course of action</li>
+          <li>Analogy and Classification — Word analogy</li>
+          <li>Analogy and Classification — Number analogy</li>
+          <li>Analogy and Classification — Odd one out</li>
+          <li>Ranking and Order — Rank-based puzzles</li>
+          <li>Ranking and Order — Position-based puzzles</li>
+          <li>Input-Output — Machine-based pattern problems</li>
+          <li>Data Sufficiency — Two statements logic</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Non-Verbal Reasoning</div>
+        <ul>
+          <li>Image-Based — Mirror images</li>
+          <li>Image-Based — Water images</li>
+          <li>Image-Based — Embedded figures</li>
+          <li>Image-Based — Figure Completion</li>
+          <li>Paper-Folding & Cutting — Hole Punching</li>
+          <li>Paper-Folding & Cutting — Pattern Prediction</li>
+          <li>Cubes & Dice — Painted cubes</li>
+          <li>Cubes & Dice — Dice Rotation</li>
+          <li>Pattern Recognition — Series of figures</li>
+          <li>Analogy (figural)</li>
+        </ul>
+      </article>
+
+      <article class="syllabus-card reveal from-down">
+        <h3>Analytical Reasoning</h3>
+        <ul>
+          <li>Decision Making</li>
+          <li>Critical Reasoning</li>
+          <li>Logical Games</li>
+          <li>Cause & Effect</li>
+          <li>Statement Evaluation</li>
+        </ul>
+      </article>
+
+      <article class="syllabus-card reveal from-right">
+        <h3>Verbal Ability</h3>
+
+        <div class="syllabus-subtitle">Grammar</div>
+        <ul>
+          <li>Tenses</li>
+          <li>Articles</li>
+          <li>Prepositions</li>
+          <li>Conjunctions</li>
+          <li>Voice</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Usage</div>
+        <ul>
+          <li>Sentence Correction</li>
+          <li>Error Detection</li>
+          <li>Fill in the Blanks</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Comprehension</div>
+        <ul>
+          <li>Reading Comprehension</li>
+          <li>Para Jumbles</li>
+          <li>Para Summary</li>
+        </ul>
+
+        <div class="syllabus-subtitle">Vocabulary</div>
+        <ul>
+          <li>Synonyms</li>
+          <li>Antonyms</li>
+          <li>Idioms & Phrases</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="interview">
+  <div class="container">
+
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">Career Preparation</div>
+      <h2>Walk into your next interview prepared.</h2>
+      <p>
+        Build the communication and general interview skills needed
+        to present yourself clearly and confidently.
+      </p>
+    </div>
+
+    <div class="interview-wrap">
+
+      <div class="interview-intro reveal from-left">
+        <h3>Interview Preparation</h3>
+        <p>
+          Learn how to introduce yourself, structure answers, handle common HR questions,
+          communicate clearly and improve through mock interview practice.
+        </p>
+
+        <div class="interview-note">
+          <strong>Important:</strong> KALASALA focuses on general interview preparation,
+          communication, aptitude and reasoning. Technical or domain-specific subjects are not covered.
+        </div>
+      </div>
+
+      <div class="interview-topics reveal from-right">
+        <div class="interview-topic">English Communication</div>
+        <div class="interview-topic">Self Introduction</div>
+        <div class="interview-topic">HR Interview Questions</div>
+        <div class="interview-topic">Answer Structuring</div>
+        <div class="interview-topic">Communication Skills</div>
+        <div class="interview-topic">Confidence Building</div>
+        <div class="interview-topic">Resume-Based Questions</div>
+        <div class="interview-topic">Situational Questions</div>
+        <div class="interview-topic">Interview Etiquette</div>
+        <div class="interview-topic">Mock Interviews</div>
+        <div class="interview-topic">Group Discussion Basics</div>
+        <div class="interview-topic">Interview Feedback</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">Why KALASALA</div>
+      <h2>Learning designed around real schedules.</h2>
+    </div>
+
+    <div class="why-grid">
+
+      <article class="why-card reveal from-left">
+        <div class="icon">💻</div>
+        <h3>Live Online Classes</h3>
+        <p>Learn from wherever you are without needing to travel to a coaching centre.</p>
+      </article>
+
+      <article class="why-card reveal from-up">
+        <div class="icon">🌙</div>
+        <h3>Flexible Timings</h3>
+        <p>Sessions can be arranged around program and batch requirements, including suitable night sessions.</p>
+      </article>
+
+      <article class="why-card reveal from-right">
+        <div class="icon">📝</div>
+        <h3>Practice Focused</h3>
+        <p>Strengthen concepts by applying them through practice and preparation.</p>
+      </article>
+
+      <article class="why-card reveal from-left">
+        <div class="icon">🎯</div>
+        <h3>Mock Tests & Interviews</h3>
+        <p>Prepare through realistic practice and use feedback to identify areas for improvement.</p>
+      </article>
+
+      <article class="why-card reveal from-up">
+        <div class="icon">👨‍🏫</div>
+        <h3>Personal Guidance</h3>
+        <p>Learn directly with Bheeshma B. throughout your preparation.</p>
+      </article>
+
+      <article class="why-card reveal from-right">
+        <div class="icon">💰</div>
+        <h3>Focused Pricing</h3>
+        <p>Choose the program you need without paying for a giant combined course.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="tutor">
+  <div class="container">
+
+    <div class="section-heading reveal from-down">
+      <div class="section-kicker">Meet Your Tutor</div>
+      <h2>Learn directly with Bheeshma B.</h2>
+    </div>
+
+    <div class="tutor-card reveal zoom">
+      <div class="tutor-avatar">BB</div>
+
+      <div>
+        <div class="role">Tutor & Founder — KALASALA</div>
+        <h3>Bheeshma B.</h3>
+        <p>
+          KALASALA is built around practical preparation in aptitude, reasoning,
+          verbal ability, communication and general interview skills — helping
+          learners build knowledge through structured learning and consistent practice.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">Programs & Pricing</div>
+      <h2>Choose the preparation you need.</h2>
+      <p>Monthly program pricing. Schedule and batch availability are discussed before joining.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <article class="price-card featured reveal from-left">
+        <div class="badge">Most Comprehensive</div>
+        <h3>Competitive Exam Preparation</h3>
+
+        <div class="price">
+          ₹1,399 <small>/ month</small>
+        </div>
+
+        <p class="price-description">
+          Structured preparation across the competitive-exam syllabus with practice and mock tests.
+        </p>
+
+        <ul>
+          <li>Quantitative Aptitude</li>
+          <li>Logical Reasoning</li>
+          <li>Analytical Reasoning</li>
+          <li>Verbal Ability</li>
+          <li>Practice & Mock Tests</li>
+          <li>Flexible Batch Timings</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-secondary">Enquire Now →</a>
+      </article>
+
+      <article class="price-card reveal from-right">
+        <h3>Interview Preparation</h3>
+
+        <div class="price">
+          ₹699 <small>/ month</small>
+        </div>
+
+        <p class="price-description">
+          Focused preparation for communication, HR interviews, answer techniques and mock interviews.
+        </p>
+
+        <ul>
+          <li>English Communication</li>
+          <li>HR Interview Preparation</li>
+          <li>Answer Structuring</li>
+          <li>Resume-Based Questions</li>
+          <li>Mock Interviews</li>
+          <li>Interview Feedback</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-primary">Enquire Now →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="schedule reveal zoom">
+      <div class="section-kicker">Flexible Online Learning</div>
+
+      <h2>Your schedule. Your preparation.</h2>
+
+      <p style="max-width:700px;margin:16px auto 0;color:var(--muted);line-height:1.8">
+        Not everyone follows the same routine. Sessions are planned according to
+        the program, session requirements and batch availability.
+      </p>
+
+      <div class="schedule-grid">
+
+        <div class="time-card reveal from-down">
+          <div class="time-icon">☀️</div>
+          <h3>Morning</h3>
+          <p>For learners who prefer an early schedule.</p>
+        </div>
+
+        <div class="time-card reveal from-up">
+          <div class="time-icon">🌆</div>
+          <h3>Evening</h3>
+          <p>Suitable for students and learners after regular activities.</p>
+        </div>
+
+        <div class="time-card reveal from-down">
+          <div class="time-icon">🌙</div>
+          <h3>Night</h3>
+          <p>Suitable sessions may be arranged for working professionals based on batch requirements.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">How It Works</div>
+      <h2>Start your preparation in five simple steps.</h2>
+    </div>
+
+    <div class="steps">
+
+      <article class="step reveal from-left">
+        <div class="step-number">01</div>
+        <h3>Choose Your Program</h3>
+        <p>Select Competitive Exam Preparation or Interview Preparation.</p>
+      </article>
+
+      <article class="step reveal from-up">
+        <div class="step-number">02</div>
+        <h3>Book a Free Demo</h3>
+        <p>Experience the teaching approach before joining.</p>
+      </article>
+
+      <article class="step reveal from-down">
+        <div class="step-number">03</div>
+        <h3>Join Your Batch</h3>
+        <p>Choose an available schedule that works for your requirements.</p>
+      </article>
+
+      <article class="step reveal from-up">
+        <div class="step-number">04</div>
+        <h3>Learn & Practice</h3>
+        <p>Attend sessions, understand concepts and practice consistently.</p>
+      </article>
+
+      <article class="step reveal from-right">
+        <div class="step-number">05</div>
+        <h3>Improve</h3>
+        <p>Use practice, mock tests and feedback to identify areas for improvement.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+
+    <div class="section-heading reveal from-up">
+      <div class="section-kicker">Frequently Asked Questions</div>
+      <h2>Questions? We have answers.</h2>
+    </div>
+
+    <div class="faq">
+
+      <details class="reveal from-left">
+        <summary>Are KALASALA classes online?</summary>
+        <p>Yes. KALASALA conducts online learning sessions.</p>
+      </details>
+
+      <details class="reveal from-right">
+        <summary>Are class timings fixed?</summary>
+        <p>Timings depend on the program, session requirements and batch availability.</p>
+      </details>
+
+      <details class="reveal from-left">
+        <summary>Are night classes available?</summary>
+        <p>
+          Suitable night sessions may be arranged depending on batch requirements,
+          particularly for working professionals.
+        </p>
+      </details>
+
+      <details class="reveal from-right">
+        <summary>Do you teach technical interview subjects?</summary>
+        <p>
+          No. KALASALA focuses on general interview preparation, communication,
+          aptitude and reasoning rather than technical or domain-specific subjects.
+        </p>
+      </details>
+
+      <details class="reveal from-left">
+        <summary>Can beginners join?</summary>
+        <p>Yes. Program and batch suitability can be discussed before enrollment.</p>
+      </details>
+
+      <details class="reveal from-right">
+        <summary>Can I attend a demo before joining?</summary>
+        <p>Yes. Connect with KALASALA on Instagram to enquire about available free demo sessions.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+
+    <div class="final-cta reveal zoom">
+
+      <div class="section-kicker" style="color:#e5cf9e">
+        Connect With KALASALA
+      </div>
+
+      <h2>Start Preparing With KALASALA.</h2>
+
+      <p>
+        Whether you're preparing for a competitive examination or your next job interview,
+        connect with KALASALA and take the next step towards your goals.
+      </p>
+
+      <a
+        class="btn btn-primary"
+        href="https://www.instagram.com/kalasala04/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Message Us on Instagram →
+      </a>
+
+      <p style="margin-top:18px;margin-bottom:0;font-size:.88rem">
+        Follow KALASALA on Instagram for updates, learning content and announcements.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-brand">KALASALA</div>
+
+    <div class="footer-small">
+      Learn. Prepare. Succeed.<br>
+      Competitive Exam Preparation • Interview Preparation • Online Learning<br>
+      Bheeshma B.<br><br>
+      © 2026 KALASALA. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<div class="music-status" id="musicStatus"></div>
+
+<script>
+const revealItems=document.querySelectorAll('.reveal');
+
+const observer=new IntersectionObserver((entries,obs)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      obs.unobserve(entry.target)
+    }
+  })
+},{
+  threshold:.12,
+  rootMargin:'0px 0px -50px 0px'
+});
+
+revealItems.forEach(item=>observer.observe(item));
+
+const music=document.getElementById('bgMusic'),
+      btn=document.getElementById('musicBtn'),
+      status=document.getElementById('musicStatus');
+
+music.loop=true;
+
+btn.addEventListener('click',async()=>{
+  try{
+    if(music.paused){
+      await music.play();
+      btn.textContent='♫ Music: On';
+      status.textContent='Background music is playing ♪'
+    }else{
+      music.pause();
+      btn.textContent='♫ Music: Off';
+      status.textContent='Background music paused'
+    }
+
+    status.classList.add('visible');
+
+    setTimeout(()=>{
+      status.classList.remove('visible')
+    },1800)
+
+  }catch(e){
+    btn.textContent='♫ Add music.mp3';
+    status.textContent='Add your music file as music.mp3';
+    status.classList.add('visible');
+
+    setTimeout(()=>{
+      status.classList.remove('visible')
+    },2500)
+  }
+});
+
+window.addEventListener('scroll',()=>{
+  const hero=document.querySelector('.hero-content');
+
+  if(hero)
+    hero.style.transform=`translateY(${Math.min(window.scrollY*.12,90)}px)`
+},{
+  passive:true
+});
+</script>
+
+</body>
+</html>
+```
